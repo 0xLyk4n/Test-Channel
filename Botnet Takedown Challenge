@@ -1,0 +1,16 @@
+Take all bots from source
+Save in file ~ bot
+
+cat bot | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
+
+Copy all to ip.txt
+
+
+takedown.sh
+#!/bin/bash
+for ip in $(cat ~/ip.txt); do curl http://$ip; done;
+
+
+
+
+
