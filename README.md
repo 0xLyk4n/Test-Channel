@@ -1,5 +1,48 @@
 # test-suricata
 
+drop tcp any any -> any any (content:"/index.php?page=competition&id=1&name="; pcre:"..\/..\/..\/..\/..\/..\/etc\/passwd")
+drop tcp any any -> any any (content:"/index.php?page=competition&id=1&name="; pcre:"..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd")
+drop http any any -> any any (content:"/index.php?page=competition&id=1&name="; pcre:"..\/..\/..\/..\/..\/..\/etc\/passwd")
+drop http any any -> any any (content:"/index.php?page=competition&id=1&name="; pcre:"..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd")
+
+
+drop tcp any any -> any any (content:"/images.php?id="; pcre:"^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$")
+drop http any any -> any any (content:"/images.php?id="; pcre:"^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #drop http any any -> 192.168.6.1 any (; sid:10001;)
 #drop http 192.168.6.1 any -> any any (Content:"Y2F0IC9ldGMvcGFzc3dkCg=="; sid:10001;)
