@@ -1,5 +1,15 @@
 # test-suricata
 
+FINAL:
+drop tcp 192.168.10.254 any -> 192.168.10.2 80 (msg:"drop path traversal, Drop";pcre:"/\.\.%2F/"; sid:10001;)
+drop tcp 192.168.10.254 any -> 192.168.10.2 80 (msg:"drop webshell, Drop"; pcre:"/images\.php\?id=[a-zA-Z0-9]*/"; sid:10002;)
+
+
+
+
+
+
+
 drop tcp any any -> any any (content:"/index.php?page=competition&id=1&name="; pcre:"..\/..\/..\/..\/..\/..\/etc\/passwd")
 drop tcp any any -> any any (content:"/index.php?page=competition&id=1&name="; pcre:"..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd")
 drop http any any -> any any (content:"/index.php?page=competition&id=1&name="; pcre:"..\/..\/..\/..\/..\/..\/etc\/passwd")
